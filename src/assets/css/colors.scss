@@ -1,0 +1,39 @@
+:root {
+  /* Colors */
+  --clr-dark: #f8fafc;
+  --clr-light: #020617;
+  --clr-slate300: #1e293a;
+  --clr-slate400: #1e293b;
+  --clr-slate600: #1e293c;
+  --clr-green: #16a34a;
+  --clr-orange: #ea580c;
+}
+
+html {
+  &.dark-theme {
+    --clr-dark: #020617;
+    --clr-light: #f8fafc;
+    --clr-slate300: #cbd5e1;
+    --clr-slate400: #94a3b8;
+    --clr-slate600: #475569;
+    // .navbar-icon {
+    //   filter: brightness(5) invert(1);
+    // }
+    // .navbar-icon-home {
+    //   filter: brightness(5) invert(0);
+    // }
+  }
+  &.light-theme {
+    --clr-dark: #f8fafc;
+    --clr-light: #020617;
+    --clr-slate300: #1e293a;
+    --clr-slate400: #1e293b;
+    --clr-slate600: #1e293c;
+    // .navbar-icon {
+    //   filter: brightness(5) invert(1);
+    // }
+    // .navbar-icon-home {
+    //   filter: brightness(5) invert(0);
+    // }
+  }
+}

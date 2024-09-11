@@ -1,0 +1,178 @@
+@import url("./fonts.scss");
+@import url("./colors.scss");
+@import url("./variables.scss");
+@import url("./rest.scss");
+@import url("./general.scss");
+
+body {
+  user-select: none;
+  height: 100%;
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+  font-family: var(--font-family) !important;
+  direction: var(--direction);
+  text-align: var(--position-start);
+  overflow-wrap: break-word;
+}
+
+/*#region APP-layout */
+/*#region base-layout */
+%baselayout {
+  display: grid;
+  grid-template-rows: var(--size-6xl) 1fr;
+  overflow-y: hidden;
+  .app-navbar {
+    height: 100%;
+    width: 99%;
+    box-shadow: 0 0px 8px 0 var(--clr-light);
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    border-radius: 10px;
+    margin: 0px auto;
+    .link-title {
+      color: var(--clr-orange);
+    }
+  }
+  .app-content {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    .app-content-container {
+      display: grid;
+      height: 100%;
+      grid-template-rows: 1fr var(--size-6xl);
+      .main-content-container,
+      .page {
+        min-height: 100%;
+        width: 100%;
+        height: 100%;
+        padding-top: calc(var(--size-base) / 2);
+        padding-inline: var(--size-base);
+        overflow-x: auto;
+      }
+    }
+    .app-footer {
+      min-height: var(--size-base);
+
+      overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background-color: var(--clr-slate600);
+      .app-footer-container {
+        a {
+          color: var(--clr-green);
+          &:hover {
+            color: var(--clr-orange);
+          }
+        }
+      }
+    }
+  }
+}
+/*#endregion base-layout */
+#app-container {
+  height: 100vh;
+  &.app-layout {
+    @extend %baselayout;
+  }
+}
+/*#endregion App-layout */
+
+/*#region Auth-layout */
+.auth-layout {
+  .app-navbar {
+    .auth-container {
+      display: grid;
+      height: 100%;
+      grid-template-columns: auto auto;
+      padding-inline: var(--size-base);
+      gap: 0 var(--size-base);
+      align-content: center;
+      justify-content: space-between;
+      .actions,
+      .prand,
+      .settings {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+/*#endregion Auth-layout */
+
+/*#region Dashboard-layout  */
+/*#region dashboard-navbar */
+.app-navbar {
+  &.dashboard-navbar {
+    .dashboard-container {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      justify-items: center;
+      padding-inline: var(--size-base);
+      .actions {
+        .toggel-sidebar-icon {
+          cursor: pointer;
+        }
+      }
+      .dropdown-toggle::after {
+        display: none !important;
+      }
+    }
+  }
+}
+/*#endregion dashboard-navbar */
+/*#region dashboard-content */
+.dashboard-content {
+  .dashboard-content-container {
+    display: grid;
+    will-change: display;
+    transition: var(--tran-03);
+    &.sidebar-opend {
+      grid-template-columns: var(--sidebar-width-open) auto;
+    }
+    &.sidebar-closed {
+      grid-template-columns: var(--sidebar-width-close) auto;
+    }
+    grid-template-rows: 100%;
+    grid-template-areas: "dashboard-sidebar main-content-container";
+    .dashboard-sidebar {
+      box-shadow: 2px 2px 11px 0px var(--clr-light);
+      position: relative;
+      grid-area: dashboard-sidebar;
+      &.sidebar-opend {
+        width: var(--sidebar-width-open);
+        max-width: var(--sidebar-width-open);
+      }
+      &.sidebar-closed {
+        width: var(--sidebar-width-close);
+        max-width: var(--sidebar-width-close);
+      }
+      .sidebar-container {
+        .sidebar-list {
+          .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            .router-link-exact-active {
+              color: var(--clr-green);
+            }
+          }
+        }
+      }
+    }
+    .main-content-container {
+      grid-area: main-content-container;
+    }
+  }
+}
+/*#endregion dashboard-content */
+/*#endregion Dashboard-layout  */
