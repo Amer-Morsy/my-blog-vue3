@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import store from "../store";
+// import store from "../store";
 import HomeView from "../views/home/HomePage.vue";
 
 const routes = [
@@ -14,13 +14,13 @@ const routes = [
     },
   },
   {
-    path: "/login-signup",
-    name: "LoginSignup",
-    component: () => import("@/views/test/LoginSignup.vue"),
+    path: "/dashboard",
+    name: "Dashboard",
+    component: () => import("@/views/dashboard/DashboardPage.vue"),
     meta: {
-      title: "Login",
+      title: "Dashboard",
       visibale: true,
-      layout: "auth",
+      layout: "dashboard",
     },
   },
   {
@@ -31,6 +31,16 @@ const routes = [
       title: "Test",
       visibale: true,
       layout: "dashboard",
+    },
+  },
+  {
+    path: "/login-signup",
+    name: "LoginSignup",
+    component: () => import("@/views/test/LoginSignup.vue"),
+    meta: {
+      title: "Login",
+      visibale: true,
+      layout: "auth",
     },
   },
   {
@@ -53,9 +63,9 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   document.title = `${to.meta.title} | My Blog`;
 
-  if (!store.state.users.userLogined && to.name !== "LoginSignup") {
-    return next({ name: "LoginSignup" });
-  }
+  // if (!store.state.users.userLogined && to.name !== "LoginSignup") {
+  //   return next({ name: "LoginSignup" });
+  // }
   return next();
 });
 

@@ -1,11 +1,26 @@
 <script>
 import User from "@/models/users/User";
+import { mapActions } from "vuex";
+
 export default {
   name: "LoginSignup",
   data() {
     return {
       user: new User(),
     };
+  },
+  methods: {
+    ...mapActions(["updateUserLogined"]),
+    signup() {
+      console.log(this.user);
+      this.updateUserLogined(true);
+      this.$router.push("/");
+    },
+    login() {
+      console.log(this.user);
+      this.updateUserLogined(true);
+      this.$router.push("/");
+    },
   },
 };
 </script>
@@ -16,7 +31,7 @@ export default {
       <input type="checkbox" id="chk" aria-hidden="true" />
 
       <div class="signup">
-        <form>
+        <form @submit.prevent="signup">
           <label for="chk" aria-hidden="true">Sign up</label>
           <input
             type="text"
@@ -46,21 +61,28 @@ export default {
             placeholder="Password confirmation"
             required=""
           />
-          <button>Sign up</button>
+          <button type="submit">Sign up</button>
         </form>
       </div>
 
       <div class="login">
-        <form>
+        <form @submit.prevent="login">
           <label for="chk" aria-hidden="true">Login</label>
-          <input type="email" name="email" placeholder="Email" required="" />
+          <input
+            type="email"
+            name="email"
+            v-model="user.email"
+            placeholder="Email"
+            required=""
+          />
           <input
             type="password"
             name="pswd"
+            v-model="user.password"
             placeholder="Password"
             required=""
           />
-          <button>Login</button>
+          <button type="submit">Login</button>
         </form>
       </div>
     </div>

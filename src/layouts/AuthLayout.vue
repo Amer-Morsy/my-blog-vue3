@@ -1,11 +1,11 @@
 <script>
-import AppNav from "@/components/AppNav.vue";
+import AuthNav from "@/components/AuthNav.vue";
 import AppFooter from "@/components/AppFooter.vue";
 
 export default {
   name: "AuthLayout",
   components: {
-    AppNav,
+    AuthNav,
     AppFooter,
   },
 };
@@ -14,7 +14,7 @@ export default {
 <template>
   <div class="app-layout auth-layout">
     <div class="app-navbar auth-navbar">
-      <AppNav />
+      <AuthNav />
     </div>
 
     <div class="app-content auth-content">

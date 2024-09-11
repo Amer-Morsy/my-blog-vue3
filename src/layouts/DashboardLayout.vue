@@ -1,5 +1,5 @@
 <script>
-import AppNav from "@/components/AppNav.vue";
+import DashboardNav from "@/components/DashboardNav.vue";
 import AppFooter from "@/components/AppFooter.vue";
 import generalMixins from "@/utils/generalMixins";
 
@@ -7,7 +7,7 @@ export default {
   name: "DashboardLayout",
   mixins: [generalMixins],
   components: {
-    AppNav,
+    DashboardNav,
     AppFooter,
   },
 };
@@ -15,7 +15,7 @@ export default {
 <template>
   <div class="app-layout dashboard-layout">
     <div class="app-navbar dashboard-navbar">
-      <AppNav />
+      <DashboardNav />
     </div>
     <div class="app-content dashboard-content">
       <div class="app-content-container">

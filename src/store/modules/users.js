@@ -1,5 +1,5 @@
 const state = {
-  userLogined: false,
+  userLogined: true,
 };
 
 const getters = {
@@ -8,7 +8,7 @@ const getters = {
 
 const mutations = {
   UPDATE_USER_LOGINED: (state, status) => {
-    state.loginStatus = status;
+    state.userLogined = status;
   },
 };
 
@@ -19,7 +19,7 @@ const actions = {
 };
 
 export default {
-  namespaced: true, // Optional for organizing state
+  namespaced: false, // Optional for organizing state
   state,
   getters,
   mutations,

@@ -42,8 +42,8 @@ export default {
     </div>
     <div class="page-info">
       <div class="link-with-icon">
-        <img class="icon-lg logo-icon" src="@/assets/img/me.png" alt="" />
-        <span class="link-title cut-2line">page info</span>
+        <img class="icon-lg logo-icon" :src="settingIcon" alt="" />
+        <span class="link-title cut-2line">{{ $route.name }}</span>
       </div>
     </div>
     <div class="drop-down">
@@ -56,7 +56,7 @@ export default {
             aria-expanded="false"
           >
             <div class="link-with-icon">
-              <img class="icon-lg logo-icon" :src="settingIcon" alt="" />
+              <img class="icon-lg logo-icon" src="@/assets/img/me.png" alt="" />
               <span class="link-title cut-2line">user name</span>
             </div>
           </button>
